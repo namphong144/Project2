@@ -18,14 +18,21 @@
         @forelse($products as $product)
             <tr>
                 <td>{{ $product->id }}</td>
-                <td>{{ $product->name }}
-                    <br>
-                    <img width="150px" src="{{$product->image}}">
+                <td>
+                    <a href="{{ url('admin/products/'.$product->id) }}">
+                        {{$product->name}}
+                        <br>
+                        <img width="150px" src="{{asset($product->image)}}">
+                    </a>
                 </td>
                 <td>{{ $product ->price}}</td>
                 <td>
-                    Sửa
-                    / Xóa
+                    <button>Sửa</button>
+                    <form onsubmit="return confirm('Bạn có muốn xoá?')" method="POST" action="{{url('/admin/products/'.$product->id)}}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Xoá</button>
+                    </form>
                 </td>
             </tr>
         @empty
