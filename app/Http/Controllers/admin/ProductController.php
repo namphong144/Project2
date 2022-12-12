@@ -23,12 +23,24 @@ class ProductController extends Controller
                 ->orWhere('name','LIKE','%'.$kw.'%')
                 ->paginate(10);
         }
-        $product = Product::paginate(10);
-        return view('admin/product/index',['products'=>$product]);
+        //$product = Product::paginate(10);
+        return view('admin/product/index',['products'=>$products]);
     }
     function viewProductById($id){
         $product = Product::find($id);
         return view('admin/product/detail',['product' => $product]);
+    }
+    function viewCreateBrand(){
+        $brands = Brand::all();
+        return view('admin/product/brand',['brands' => $brands]);
+    }
+    function createBrand(Request $request){
+        $brand = new Brand();
+        $brand->name = $request->get('name');
+        $brand->description = $request->get('description');
+        $brand->save();
+
+        return redirect('/admin/products');
     }
     function viewCreateProduct(){
         $brands = Brand::all();
@@ -52,8 +64,23 @@ class ProductController extends Controller
 
         return redirect('/admin/products');
     }
-    function updateProductById($id){
+    function  viewUpdateById($id){
+        $product = Product::find($id);
+        $brands = Brand::all();
+        return view('admin/product/update',['product' => $product], ['brands' => $brands]);
+    }
+    function updateProductById(Request $request, $id){
+        $imageName = time().".".$request->image->extension();
+        $request->image->move(public_path('images'), $imageName);
+        $product=Product::find($id);
+        $product->image = 'images/'. $imageName;
 
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->description = $request->description;
+        $product->id_brand = $request->brand;
+        $product->save();
+        return redirect('/admin/products');
     }
     function deleteProductById($id){
         Product::destroy($id);

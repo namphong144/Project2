@@ -192,9 +192,9 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'sidebar-dark-warning elevation-4',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-white navbar-light',
+    'classes_topnav' => 'navbar-dark',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
@@ -316,7 +316,7 @@ return [
         [
             'text' => 'Quản lý sản phẩm',
             'url'  => 'admin/products',
-            'icon' => 'fas fa-clone text-primary',
+            'icon' => 'fas fa-clone text-success',
         ],
         [
             'text' => 'Quản lý đơn hàng',

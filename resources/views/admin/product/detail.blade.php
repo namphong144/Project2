@@ -9,11 +9,11 @@
     @if($product == null)
         <h1>Sản phẩm không tồn tại</h1>
     @else
-        <table class="table table-sm table-bordered bg-light">
+        <table class="table table-light table-hover table-bordered table-responsive-md">
             <tr class="table-primary text-center">
                 <th>Id</th>
                 <th>Sản phẩm</th>
-                <th>Gía</th>
+                <th>Giá</th>
                 <th>Mô tả</th>
             </tr>
             <tr>
@@ -24,7 +24,7 @@
                     <img width="150px" src="{{asset($product->image)}}">
                 </td>
                 <td>
-                    {{$product->price}}
+                    {{number_format($product->price, 0, '', ',')}}
                 </td>
                 <td colspan="3">
                     {{$product->description}}

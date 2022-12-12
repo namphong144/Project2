@@ -26,18 +26,25 @@ Route::post('/logout',[\App\Http\Controllers\web\WebController::class,'logout'])
 Route::get('admin/home',[\App\Http\Controllers\admin\AdminController::class,'viewHome']);
 Route::get('/register',[\App\Http\Controllers\web\WebController::class,'viewRegister']);
 Route::post('register',[\App\Http\Controllers\web\WebController::class,'register']);
+//Tao 1 hang
+Route::get('admin/products/brand',[\App\Http\Controllers\admin\ProductController::class,'viewCreateBrand']);
+
+Route::post('admin/products/brand',[\App\Http\Controllers\admin\ProductController::class,'createBrand']);
 //Tao 1 san pham
 Route::get('admin/products/create',[\App\Http\Controllers\admin\ProductController::class,'viewCreateProduct']);
 
 Route::post('admin/products/create',[\App\Http\Controllers\admin\ProductController::class,'createProduct']);
+
+//Cap nhat sp
+Route::get('/admin/products/{id}/edit',[\App\Http\Controllers\admin\ProductController::class,'viewUpdateById']);
+Route::put('admin/products/{id}/edit',[\App\Http\Controllers\admin\ProductController::class,'updateProductById']);
 //Product
 //Lay toan bo sp
 Route::get('/admin/products',[\App\Http\Controllers\admin\ProductController::class,'viewAllProducts']);
 //Lay sp cu the
 Route::get('/admin/products/{id}',[\App\Http\Controllers\admin\ProductController::class,'viewProductById']);
 
-//Cap nhat sp
-Route::put('admin/products/{id}',[\App\Http\Controllers\admin\ProductController::class,'updateProductById']);
+
 //Xoa sp
 Route::delete('admin/products/{id}',[\App\Http\Controllers\admin\ProductController::class,'deleteProductById']);
 
