@@ -16,11 +16,14 @@
             <br>
             <br>
             <div class="row">
-                <textarea id="editor" name="description"></textarea>
+                <div class="col">
+                    <textarea id="editor" name="description"></textarea>
+                </div>
+
             </div>
             <br>
             <div class="row">
-                <div class="col text-center">
+                <div class="col text-right">
                     <button type="submit" class="btn btn-primary">Thêm hãng</button>
                 </div>
             </div>

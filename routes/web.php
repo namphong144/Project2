@@ -48,3 +48,15 @@ Route::get('/admin/products/{id}',[\App\Http\Controllers\admin\ProductController
 //Xoa sp
 Route::delete('admin/products/{id}',[\App\Http\Controllers\admin\ProductController::class,'deleteProductById']);
 
+
+//Tai khoan
+Route::get('/admin/users',[\App\Http\Controllers\admin\AdminController::class,'viewAllUsers']);
+//Tao tai khoan nhan vien
+Route::get('/admin/users/create',[\App\Http\Controllers\admin\AdminController::class,'viewCreateUser']);
+Route::post('admin/users/create',[\App\Http\Controllers\admin\AdminController::class,'createUser']);
+//Xoa tai khoan nhan vien
+Route::delete('admin/users/{id}',[\App\Http\Controllers\admin\AdminController::class,'deleteUserById']);
+//Sua tai khoan nhan vien
+Route::get('/admin/users/{id}/edit',[\App\Http\Controllers\admin\AdminController::class,'viewUpdateById']);
+Route::put('admin/users/{id}/edit',[\App\Http\Controllers\admin\AdminController::class,'updateUserById']);
+

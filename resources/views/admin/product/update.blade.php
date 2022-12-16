@@ -38,18 +38,22 @@
             <div class="row">
                 <div class="col">
                     <img width="150px" src="{{asset($product->image)}}">
-
-                    <input value="{{asset($product->image)}}" name="image" type="file" class="form-control-file" >
+                    <br>
+                    <br>
+                    <input src="{{asset($product->image)}}" name="image" type="file" class="form-control-file:focus" >
 
                 </div>
             </div>
             <br>
             <div class="row">
-                <textarea id="editor" name="description">{{ $product->description }}</textarea>
+                <div class="col">
+                    <textarea id="editor" name="description">{{ $product->description }}</textarea>
+                </div>
+
             </div>
             <br>
             <div class="row">
-                <div class="col text-center">
+                <div class="col text-right">
                     <button type="submit" class="btn btn-primary">Cập nhật sản phẩm</button>
                 </div>
             </div>

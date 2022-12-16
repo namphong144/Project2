@@ -16,7 +16,7 @@
                 <th>Giá</th>
                 <th>Mô tả</th>
             </tr>
-            <tr>
+            <tr class =" text-center">
                 <td>{{$product->id}}</td>
                 <td>
                     {{$product->name}}
@@ -24,7 +24,7 @@
                     <img width="150px" src="{{asset($product->image)}}">
                 </td>
                 <td>
-                    {{number_format($product->price, 0, '', ',')}}
+                    {{number_format($product->price, 0, '', ',')}}{{'đ'}}
                 </td>
                 <td colspan="3">
                     {{$product->description}}

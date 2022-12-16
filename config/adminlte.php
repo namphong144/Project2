@@ -308,7 +308,7 @@ return [
         ],
         [
             'text'        => 'Trang chủ',
-            'url'         => 'admin/pages',
+            'url'         => 'admin/home',
             'icon'        => 'fas fa-home',
             'label_color' => 'success',
         ],
@@ -324,8 +324,8 @@ return [
             'icon' => 'fas fa-cart-plus text-primary',
         ],
         [
-            'text' => 'Thông tin cá nhân',
-            'url'  => 'admin/abouts',
+            'text' => 'Quản lý tài khoản',
+            'url'  => 'admin/users',
             'icon' => 'fas fa-fw fa-user text-danger',
         ],
         [
