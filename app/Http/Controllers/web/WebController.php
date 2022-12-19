@@ -79,4 +79,8 @@ class WebController extends Controller
 
         return redirect('/login');
     }
+
+    function viewContact(){
+        return view('web.contact');
+    }
 }

@@ -5,7 +5,7 @@
 
 <!-- Map Begin -->
 <div class="map">
-    <iframe src="https://www.google.com/maps/place/43+P.+V%E1%BB%8Dng+H%C3%A0,+L%C3%BD+Th%C3%A1i+T%E1%BB%95,+Ho%C3%A0n+Ki%E1%BA%BFm,+H%C3%A0+N%E1%BB%99i,+Vietnam/@21.0323226,105.8547244,17z/data=!4m13!1m7!3m6!1s0x3135abc1a0fbed9b:0xa46eab55c1e186ff!2zNDMgUC4gVuG7jW5nIEjDoCwgTMO9IFRow6FpIFThu5UsIEhvw6BuIEtp4bq_bSwgSMOgIE7hu5lpLCBWaWV0bmFt!3b1!8m2!3d21.0323176!4d105.8569184!3m4!1s0x3135abc1a0fbed9b:0xa46eab55c1e186ff!8m2!3d21.0323176!4d105.8569184?hl=en" height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.0092074565155!2d105.85472971485453!3d21.03231758599648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abc1a0fbed9b%3A0xa46eab55c1e186ff!2zNDMgUC4gVuG7jW5nIEjDoCwgTMO9IFRow6FpIFThu5UsIEhvw6BuIEtp4bq_bSwgSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1671433328705!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 <!-- Map End -->
 

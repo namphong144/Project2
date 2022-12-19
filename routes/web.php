@@ -60,3 +60,7 @@ Route::delete('admin/users/{id}',[\App\Http\Controllers\admin\AdminController::c
 Route::get('/admin/users/{id}/edit',[\App\Http\Controllers\admin\AdminController::class,'viewUpdateById']);
 Route::put('admin/users/{id}/edit',[\App\Http\Controllers\admin\AdminController::class,'updateUserById']);
 
+
+//Giao dien khach hang
+Route::get('/home/contact',[\App\Http\Controllers\web\WebController::class,'viewContact']);
+

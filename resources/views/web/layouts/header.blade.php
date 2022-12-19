@@ -28,7 +28,7 @@
             <div class="col-lg-6 col-md-6">
                 <nav class="header__menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="resources/views/web/home.blade.php">Trang chủ</a></li>
+                        <li class="active"><a href="{{url('/home')}}">Trang chủ</a></li>
                         <li><a href="#">Sản phẩm</a>
                             <ul class="dropdown">
                                 <li><a href="#">Cà phê bột</a>
@@ -52,7 +52,7 @@
                             </ul>
                         </li>
                         <li><a href="#">Bài viết</a></li>
-                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="{{url('/home/contact')}}">Liên hệ</a></li>
                     </ul>
                 </nav>
             </div>
