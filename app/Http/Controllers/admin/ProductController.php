@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Brand;
+use App\Models\Type;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -28,23 +29,27 @@ class ProductController extends Controller
     }
     function viewProductById($id){
         $product = Product::find($id);
-        return view('admin/product/detail',['product' => $product]);
+        $types = Type::all();
+        return view('admin/product/detail',['product' => $product],['types' => $types]);
     }
-    function viewCreateBrand(){
-        $brands = Brand::all();
-        return view('admin/product/brand',['brands' => $brands]);
+    function viewCreateType(){
+        $types = DB::table('types')->get();
+//        dd($types);
+        return view('admin/product/type',['types' => $types]);
     }
-    function createBrand(Request $request){
-        $brand = new Brand();
-        $brand->name = $request->get('name');
-        $brand->description = $request->get('description');
-        $brand->save();
+    function createType(Request $request){
+        $type = new Type();
+        $type->id = $request->get('id');
+        $type->name = $request->get('name');
+        $type->description = $request->get('description');
+        $type->save();
 
         return redirect('/admin/products');
     }
     function viewCreateProduct(){
-        $brands = Brand::all();
-        return view('admin/product/create',['brands' => $brands]);
+        $types = Type::all();
+//        dd($types);
+        return view('admin/product/create',['types' => $types]);
     }
     function createProduct(Request $request){
         $imageName = time().".".$request->file('image')->extension();
@@ -52,33 +57,32 @@ class ProductController extends Controller
 
         //duong dan den hinh
         $product = new Product();
-
+        $product->id = $request->get('id');
         $product->image = 'images/'. $imageName;
-
         $product->name = $request->get('name');
         $product->price = $request->get('price');
         $product->description = $request->get('description');
-        $product->id_brand = $request->get('brand');
-
+        $product->id_type = $request->get('type');
+//        dd($product);
         $product->save();
 
         return redirect('/admin/products');
     }
     function  viewUpdateById($id){
         $product = Product::find($id);
-        $brands = Brand::all();
-        return view('admin/product/update',['product' => $product], ['brands' => $brands]);
+        $types = Type::all();
+        return view('admin/product/update',['product' => $product], ['types' => $types]);
     }
     function updateProductById(Request $request, $id){
         $imageName = time().".".$request->image->extension();
         $request->image->move(public_path('images'), $imageName);
         $product=Product::find($id);
         $product->image = 'images/'. $imageName;
-
+        $product->id = $request->id;
         $product->name = $request->name;
         $product->price = $request->price;
         $product->description = $request->description;
-        $product->id_brand = $request->brand;
+        $product->id_type = $request->type;
         $product->save();
         return redirect('/admin/products');
     }

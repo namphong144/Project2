@@ -11,8 +11,9 @@
     @else
         <table class="table table-light table-hover table-bordered table-responsive-md">
             <tr class="table-primary text-center">
-                <th>Id</th>
+                <th>Mã sản phẩm</th>
                 <th>Sản phẩm</th>
+                <th>Loại sản phẩm</th>
                 <th>Giá</th>
                 <th>Mô tả</th>
             </tr>
@@ -22,6 +23,14 @@
                     {{$product->name}}
                     <br>
                     <img width="150px" src="{{asset($product->image)}}">
+                </td>
+                <td>
+                    @forelse($types as $type)
+
+                        @if($product->id_type == $type->id) {{$type->name}} @endif
+                    @empty
+                    {{'Không có loại sản phẩm'}}
+                    @endforelse
                 </td>
                 <td>
                     {{number_format($product->price, 0, '', ',')}}{{'đ'}}

@@ -1,5 +1,5 @@
 @extends('layouts.base')
-@section('title','Thêm hãng mới')
+@section('title','Thêm loại mới')
 
 @section('content')
     <br>
@@ -9,8 +9,14 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <label>Tên hãng</label>
-                    <input name="name" class="form-control" type="text" placeholder="Nhập tên sản phẩm" required>
+                    <label>Mã loại sản phẩm</label>
+                    <input name="id" class="form-control" type="text" placeholder="Nhập mã loại sản phẩm" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label>Tên loại sản phẩm</label>
+                    <input name="name" class="form-control" type="text" placeholder="Nhập tên loại sản phẩm" required>
                 </div>
             </div>
             <br>
@@ -24,7 +30,7 @@
             <br>
             <div class="row">
                 <div class="col text-right">
-                    <button type="submit" class="btn btn-primary">Thêm hãng</button>
+                    <button type="submit" class="btn btn-primary">Thêm loại</button>
                 </div>
             </div>
         </div>

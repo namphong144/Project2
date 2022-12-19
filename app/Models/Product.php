@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    protected $keyType = 'string';
     use HasFactory;
 }

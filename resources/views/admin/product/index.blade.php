@@ -3,11 +3,11 @@
 @section('content')
     <br>
     <a href="{{url('admin/products/create')}}"> <button type="submit" class="btn btn-success">Thêm sản phẩm</button></a>
-    <a href="{{url('admin/products/brand')}}"> <button type="submit" class="btn btn-success">Thêm hãng</button></a>
+    <a href="{{url('admin/products/type')}}"> <button type="submit" class="btn btn-success">Thêm loại sản phẩm</button></a>
     <br>
     <br>
     <form action="">
-        <input name="kw" class="form-control" type="text" placeholder="Nhập từ khóa cần tìm kiếm">
+        <input name="kw" class="form-control" type="text" placeholder="Nhập tên sản phẩm cần tìm kiếm">
         <button type="submit" hidden class="btn btn-primary">Tìm</button>
     </form>
 
@@ -16,7 +16,7 @@
         <tr class ="table-primary text-center">
             <th class = "col-1">Mã sản phẩm</th>
             <th class = "col-5">Sản phẩm</th>
-{{--            <th class = "col-3">Hãng</th>--}}
+{{--            <th class = "col-3">Loại sản phẩm</th>--}}
             <th class = "col-2">Giá</th>
             <th class = "col-2">Hành động</th>
         </tr>
@@ -30,11 +30,11 @@
                         <img width="150px" src="{{asset($product->image)}}">
                     </a>
                 </td>
-{{--                <td>@forelse($brands as $brand)--}}
+{{--                <td>@forelse($types as $type)--}}
 
-{{--                        @if($product->id_brand == $brand->id) {{$brand->name}} @endif--}}
+{{--                        @if($product->id_type == $type->id) {{$type->name}} @endif--}}
 {{--                    @empty--}}
-{{--                        {{"Không có hãng"}}--}}
+{{--                        {{"Không có loại sản phẩm"}}--}}
 {{--                    @endforelse--}}
 {{--                </td>--}}
                 <td>

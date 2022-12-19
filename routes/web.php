@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\web\WebController::class,'viewHome']);
 
 Route::get('/home',[\App\Http\Controllers\web\WebController::class,'viewHome']);
+Route::post('/home',[\App\Http\Controllers\web\WebController::class,'viewHomeProduct']);
 
 Route::get('/login',[\App\Http\Controllers\web\WebController::class,'viewLogin']);
 Route::post('/login',[\App\Http\Controllers\web\WebController::class,'login']);
@@ -26,10 +27,10 @@ Route::post('/logout',[\App\Http\Controllers\web\WebController::class,'logout'])
 Route::get('admin/home',[\App\Http\Controllers\admin\AdminController::class,'viewHome']);
 Route::get('/register',[\App\Http\Controllers\web\WebController::class,'viewRegister']);
 Route::post('register',[\App\Http\Controllers\web\WebController::class,'register']);
-//Tao 1 hang
-Route::get('admin/products/brand',[\App\Http\Controllers\admin\ProductController::class,'viewCreateBrand']);
+//Tao 1 loai
+Route::get('admin/products/type',[\App\Http\Controllers\admin\ProductController::class,'viewCreateType']);
 
-Route::post('admin/products/brand',[\App\Http\Controllers\admin\ProductController::class,'createBrand']);
+Route::post('admin/products/type',[\App\Http\Controllers\admin\ProductController::class,'createType']);
 //Tao 1 san pham
 Route::get('admin/products/create',[\App\Http\Controllers\admin\ProductController::class,'viewCreateProduct']);
 

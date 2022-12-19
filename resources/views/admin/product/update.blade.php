@@ -11,6 +11,10 @@
         <div class="container">
             <div class="row">
                 <div class="col">
+                    <label>Mã sản phẩm</label>
+                    <input name="id" value="{{ $product->id }}" class="form-control" type="text" placeholder="Nhập mã sản phẩm" required>
+                </div>
+                <div class="col">
                     <label>Tên sản phẩm</label>
                     <input name="name" value="{{ $product->name }}" class="form-control" type="text" placeholder="Nhập tên sản phẩm" required>
                 </div>
@@ -21,14 +25,14 @@
                 </div>
                 <div class="col">
                     {{--                     Chon hang--}}
-                    <label>Chọn hãng</label>
-                    <select name="brand" class="form-control">
+                    <label>Chọn loại sản phẩm</label>
+                    <select name="type" class="form-control">
 
-                            @forelse($brands as $brand)
+                            @forelse($types as $type)
 
-                                <option @if($product->id_brand == $brand->id) {{"selected"}} @endif  value="{{$brand->id}}">{{$brand->name}}</option>
+                                <option @if($product->id_type == $type->id) {{"selected"}} @endif  value="{{$type->id}}">{{$type->name}}</option>
                             @empty
-                                <option>Không có hãng</option>
+                                <option>Không có loại sản phẩm</option>
                             @endforelse
 
                     </select>

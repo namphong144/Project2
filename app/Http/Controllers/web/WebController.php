@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,9 +16,24 @@ class WebController extends Controller
     // Cac trang chung, xử lý chung bên này
 
     // GET: localhost/home
-    function viewHome()
+    function viewHome(Request $request)
     {
-        return view('web.home');
+        $kw = $request->get('kw', '');
+        if(empty($kw)){
+            $products = Product::paginate(10);
+        }
+        else{
+            $products = Product::where('id','LIKE','%'.$kw.'%')
+                ->orWhere('name','LIKE','%'.$kw.'%')
+                ->paginate(10);
+        }
+        //$product = Product::paginate(10);
+        return view('web.home',['products'=>$products]);
+    }
+    function viewHomeProduct($id){
+        $product = Product::find($id);
+        //$product = Product::paginate(10);
+        return view('admin/product/index',['product' => $product]);
     }
 
     // GET: localhost/login
