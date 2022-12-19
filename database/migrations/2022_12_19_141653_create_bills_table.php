@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('bills', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->string('name',100);
-            $table->decimal('price');
-            $table->string('image',1000);
-            $table->text('description')->nullable();
-            $table->string('id_type');
-            $table->foreign('id_type')->references('id')->on('types');
+            $table->date('purchase_date');
+            $table->string('status');
+            $table->string('id_payment');
+            $table->foreign('id_payment')->references('id')->on('payment_methods');
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('bills');
     }
 };
