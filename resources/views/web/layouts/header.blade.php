@@ -29,7 +29,7 @@
                 <nav class="header__menu mobile-menu">
                     <ul>
                         <li class="active"><a href="{{url('/home')}}">Trang chủ</a></li>
-                        <li><a href="#">Sản phẩm</a>
+                        <li><a href="{{url('/home/shop')}}">Sản phẩm</a>
                             <ul class="dropdown">
                                 <li><a href="#">Cà phê bột</a>
                                     <ul>

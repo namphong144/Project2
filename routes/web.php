@@ -65,4 +65,4 @@ Route::put('admin/users/{id}/edit',[\App\Http\Controllers\admin\AdminController:
 //Giao dien khach hang
 Route::get('/home/contact',[\App\Http\Controllers\web\WebController::class,'viewContact']);
 Route::get('home/blog',[\App\Http\Controllers\web\WebController::class,'viewBlog']);
-
+Route::get('home/shop',[\App\Http\Controllers\web\WebController::class,'viewShop']);

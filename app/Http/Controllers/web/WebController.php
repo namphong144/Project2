@@ -103,4 +103,8 @@ class WebController extends Controller
     function viewBlog(){
         return view('web.blog');
     }
+
+    function viewShop(){
+        return view('web.shop');
+    }
 }
