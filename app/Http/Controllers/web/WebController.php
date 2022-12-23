@@ -99,4 +99,8 @@ class WebController extends Controller
     function viewContact(){
         return view('web.contact');
     }
+
+    function viewBlog(){
+        return view('web.blog');
+    }
 }

@@ -51,7 +51,7 @@
                                 <li><a href="#">Blog Details</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Bài viết</a></li>
+                        <li><a href="{{url('/home/blog')}}">Bài viết</a></li>
                         <li><a href="{{url('/home/contact')}}">Liên hệ</a></li>
                     </ul>
                 </nav>
