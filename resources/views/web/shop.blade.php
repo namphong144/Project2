@@ -9,7 +9,7 @@
                 <div class="breadcrumb__text">
                     <h4>Shop</h4>
                     <div class="breadcrumb__links">
-                        <a href="#">Home</a>
+                        <a href="{{url('/home')}}">Home</a>
                         <span>Shop</span>
                     </div>
                 </div>

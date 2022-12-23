@@ -99,7 +99,7 @@
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="blog__item">
-                    <div class="blog__item__pic set-bg" data-setbg="public/img/blog/blog-9.jpg"></div>
+                    <div class="blog__item__pic set-bg" data-setbg="img/blog/blog-9.jpg"></div>
                     <div class="blog__item__text">
                         <span><img src="{{asset('img/icon/calendar.png')}}" alt=""> 28 February 2020</span>
                         <h5>Lasik Eye Surgery Are You Ready</h5>
