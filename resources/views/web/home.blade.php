@@ -84,48 +84,36 @@
             </div>
         </div>
         <div class="row product__filter ">
-        @forelse($products as $product)
-
-            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix cf-bottle">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="{{$product->image}}">
-                        <span class="label">New</span>
-                        <ul class="product__hover">
-                            <li><a href="#"><img src="{{asset('img/icon/heart.png')}}" alt=""></a></li>
-                            <li><a href="#"><img src="{{asset('img/icon/compare.png')}}" alt=""> <span>Compare</span></a></li>
-                            <li><a href="#"><img src="{{asset('img/icon/search.png')}}" alt=""></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6>{{ $product->name }}</h6>
-                        <a href="#" class="add-cart">+ Add To Cart</a>
-                        <div class="rating">
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
+            @forelse($products as $product)
+                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix cf-bottle">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="{{$product->image}}">
+                            <span class="label">New</span>
+                            <ul class="product__hover">
+                                <li><a href="#"><img src="{{asset('img/icon/heart.png')}}" alt=""></a></li>
+                                <li><a href="#"><img src="{{asset('img/icon/compare.png')}}" alt=""> <span>Compare</span></a></li>
+                                <li><a href="#"><img src="{{asset('img/icon/search.png')}}" alt=""></a></li>
+                            </ul>
                         </div>
-                        <h5>{{number_format($product->price, 0, '', ',')}}{{'đ'}}</h5>
-                        <div class="product__color__select">
-                            <label for="pc-1">
-                                <input type="radio" id="pc-1">
-                            </label>
-                            <label class="active black" for="pc-2">
-                                <input type="radio" id="pc-2">
-                            </label>
-                            <label class="grey" for="pc-3">
-                                <input type="radio" id="pc-3">
-                            </label>
+                        <div class="product__item__text">
+                            <h6>{{ $product->name }}</h6>
+                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            <div class="rating">
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                            <h5>{{number_format($product->price, 0, '', ',')}}{{'đ'}}</h5>
                         </div>
                     </div>
                 </div>
-            </div>
-        @empty
-            <tr>
-                <td>Không có dữ liệu</td>
-            </tr>
-        @endforelse
+            @empty
+                <tr>
+                    <td>Không có dữ liệu</td>
+                </tr>
+            @endforelse
         </div>
     </div>
 </section>
@@ -135,12 +123,12 @@
 <!-- Instagram Section Begin -->
 <section class="instagram spad">
     <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2>Instagram</h2>
-                    <div class="embedsocial-hashtag" data-ref="1a77254e37fbd005ca157a4a843ac56ddeb361bc"> <a class="feed-powered-by-es feed-powered-by-es-feed-new" href="https://embedsocial.com/social-media-aggregator/" target="_blank" title="Widget by EmbedSocial"> Widget by EmbedSocial<span>→</span> </a> </div> <script> (function(d, s, id) { var js; if (d.getElementById(id)) {return;} js = d.createElement(s); js.id = id; js.src = "https://embedsocial.com/cdn/ht.js"; d.getElementsByTagName("head")[0].appendChild(js); }(document, "script", "EmbedSocialHashtagScript")); </script>
-                </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Instagram</h2>
+                <div class="embedsocial-hashtag" data-ref="1a77254e37fbd005ca157a4a843ac56ddeb361bc"> <a class="feed-powered-by-es feed-powered-by-es-feed-new" href="https://embedsocial.com/social-media-aggregator/" target="_blank" title="Widget by EmbedSocial"> Widget by EmbedSocial<span>→</span> </a> </div> <script> (function(d, s, id) { var js; if (d.getElementById(id)) {return;} js = d.createElement(s); js.id = id; js.src = "https://embedsocial.com/cdn/ht.js"; d.getElementsByTagName("head")[0].appendChild(js); }(document, "script", "EmbedSocialHashtagScript")); </script>
             </div>
+        </div>
     </div>
 </section>
 <!-- Instagram Section End -->
@@ -161,7 +149,7 @@
                 <div class="blog__item">
                     <div class="blog__item__pic set-bg" data-setbg="img/blog/blog-1.jpg"></div>
                     <div class="blog__item__text">
-                        <span><img src="{{asset('img/icon/calendar.png')}}" alt=""> 16 February 2020</span>
+                        <span><img src="{{asset('img/icon/calendar.png')}}}" alt=""> 16 February 2020</span>
                         <h5>What Curling Irons Are The Best Ones</h5>
                         <a href="#">Read More</a>
                     </div>

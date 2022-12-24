@@ -35,12 +35,17 @@
                         <div class="accordion" id="accordionExample">
                             <div class="card">
                                 <div class="card-heading">
+<<<<<<< Updated upstream
                                     <a data-toggle="collapse" data-target="#collapseOne">Categories</a>
+=======
+                                    <a data-toggle="collapse" data-target="#collapseOne">Danh Mục Sản Phẩm</a>
+>>>>>>> Stashed changes
                                 </div>
                                 <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
                                     <div class="card-body">
                                         <div class="shop__sidebar__categories">
                                             <ul class="nice-scroll">
+<<<<<<< Updated upstream
                                                 <li><a href="#">Men (20)</a></li>
                                                 <li><a href="#">Women (20)</a></li>
                                                 <li><a href="#">Bags (20)</a></li>
@@ -50,6 +55,10 @@
                                                 <li><a href="#">Kids (20)</a></li>
                                                 <li><a href="#">Kids (20)</a></li>
                                                 <li><a href="#">Kids (20)</a></li>
+=======
+                                                <li><a href="#">Cà phê bột</a></li>
+                                                <li><a href="#">Cà phê đóng chai</a></li>
+>>>>>>> Stashed changes
                                             </ul>
                                         </div>
                                     </div>
@@ -57,7 +66,11 @@
                             </div>
                             <div class="card">
                                 <div class="card-heading">
+<<<<<<< Updated upstream
                                     <a data-toggle="collapse" data-target="#collapseTwo">Branding</a>
+=======
+                                    <a data-toggle="collapse" data-target="#collapseTwo">Loại Sản Phẩm</a>
+>>>>>>> Stashed changes
                                 </div>
                                 <div id="collapseTwo" class="collapse show" data-parent="#accordionExample">
                                     <div class="card-body">
@@ -74,7 +87,11 @@
                             </div>
                             <div class="card">
                                 <div class="card-heading">
+<<<<<<< Updated upstream
                                     <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
+=======
+                                    <a data-toggle="collapse" data-target="#collapseThree">Sắp Xếp Theo Giá</a>
+>>>>>>> Stashed changes
                                 </div>
                                 <div id="collapseThree" class="collapse show" data-parent="#accordionExample">
                                     <div class="card-body">
@@ -93,6 +110,7 @@
                             </div>
                             <div class="card">
                                 <div class="card-heading">
+<<<<<<< Updated upstream
                                     <a data-toggle="collapse" data-target="#collapseFour">Size</a>
                                 </div>
                                 <div id="collapseFour" class="collapse show" data-parent="#accordionExample">
@@ -166,6 +184,8 @@
                             </div>
                             <div class="card">
                                 <div class="card-heading">
+=======
+>>>>>>> Stashed changes
                                     <a data-toggle="collapse" data-target="#collapseSix">Tags</a>
                                 </div>
                                 <div id="collapseSix" class="collapse show" data-parent="#accordionExample">
@@ -207,6 +227,7 @@
                     </div>
                 </div>
                 <div class="row">
+<<<<<<< Updated upstream
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
@@ -588,6 +609,13 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="img/product/product-14.jpg">
+=======
+                    @forelse($products as $product)
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="{{$product->image}}">
+                                <span class="label">New</span>
+>>>>>>> Stashed changes
                                 <ul class="product__hover">
                                     <li><a href="#"><img src="{{asset('img/icon/heart.png')}}" alt=""></a></li>
                                     <li><a href="#"><img src="{{asset('img/icon/compare.png')}}" alt=""> <span>Compare</span></a></li>
@@ -595,7 +623,11 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
+<<<<<<< Updated upstream
                                 <h6>Basic Flowing Scarf</h6>
+=======
+                                <h6>{{ $product->name }}</h6>
+>>>>>>> Stashed changes
                                 <a href="#" class="add-cart">+ Add To Cart</a>
                                 <div class="rating">
                                     <i class="fa fa-star-o"></i>
@@ -604,6 +636,7 @@
                                     <i class="fa fa-star-o"></i>
                                     <i class="fa fa-star-o"></i>
                                 </div>
+<<<<<<< Updated upstream
                                 <h5>$26.28</h5>
                                 <div class="product__color__select">
                                     <label for="pc-40">
@@ -619,6 +652,17 @@
                             </div>
                         </div>
                     </div>
+=======
+                                <h5>{{number_format($product->price, 0, '', ',')}}{{'đ'}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    @empty
+                        <tr>
+                            <td>Không có dữ liệu</td>
+                        </tr>
+                    @endforelse
+>>>>>>> Stashed changes
                 </div>
                 <div class="row">
                     <div class="col-lg-12">

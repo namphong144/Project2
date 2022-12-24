@@ -33,7 +33,7 @@ class WebController extends Controller
     function viewHomeProduct($id){
         $product = Product::find($id);
         //$product = Product::paginate(10);
-        return view('admin/product/index',['product' => $product]);
+        return view('web.shop',['product' => $product]);
     }
 
     // GET: localhost/login
@@ -99,12 +99,23 @@ class WebController extends Controller
     function viewContact(){
         return view('web.contact');
     }
-
     function viewBlog(){
         return view('web.blog');
     }
 
-    function viewShop(){
-        return view('web.shop');
+    function viewShop(Request $request){
+        $kw = $request->get('kw', '');
+        if(empty($kw)){
+            $products = Product::paginate(10);
+        }
+        else{
+            $products = Product::where('id','LIKE','%'.$kw.'%')
+                ->orWhere('name','LIKE','%'.$kw.'%')
+                ->paginate(10);
+        }
+        return view('web.shop',['products'=>$products]);
+    }
+    function viewAboutBlog(){
+        return view('web.about-blog');
     }
 }

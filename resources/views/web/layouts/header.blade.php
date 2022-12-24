@@ -39,12 +39,12 @@
                                 </li>
 
 
-                                <li><a href="#">Shop Details</a></li>
+                                <li><a href="#">Cà phê đóng chai </a></li>
                             </ul>
                         </li>
                         <li><a href="#">Trang</a>
                             <ul class="dropdown">
-                                <li><a href="#">About Us</a></li>
+                                <li><a href="{{url('/home/about-blog')}}">About Us</a></li>
                                 <li><a href="#">Shop Details</a></li>
                                 <li><a href="#">Shopping Cart</a></li>
                                 <li><a href="#">Check Out</a></li>

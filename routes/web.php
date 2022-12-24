@@ -61,8 +61,21 @@ Route::delete('admin/users/{id}',[\App\Http\Controllers\admin\AdminController::c
 Route::get('/admin/users/{id}/edit',[\App\Http\Controllers\admin\AdminController::class,'viewUpdateById']);
 Route::put('admin/users/{id}/edit',[\App\Http\Controllers\admin\AdminController::class,'updateUserById']);
 
+//Quan ly kho
+//Xem kho
+Route::get('/admin/warehouses',[\App\Http\Controllers\admin\WarehouseController::class,'viewWareHouse']);
+//Sua kho
+Route::get('/admin/warehouses/{id}/edit',[\App\Http\Controllers\admin\WarehouseController::class,'viewUpdateById']);
+Route::put('admin/warehouses/{id}/edit',[\App\Http\Controllers\admin\WarehouseController::class,'updateWarehouseById']);
+//Xoa kho
+Route::delete('admin/warehouses/{id}',[\App\Http\Controllers\admin\WarehouseController::class,'deleteWarehouseById']);
+
+
 
 //Giao dien khach hang
 Route::get('/home/contact',[\App\Http\Controllers\web\WebController::class,'viewContact']);
-Route::get('home/blog',[\App\Http\Controllers\web\WebController::class,'viewBlog']);
-Route::get('home/shop',[\App\Http\Controllers\web\WebController::class,'viewShop']);
+
+Route::get('/home/blog',[\App\Http\Controllers\web\WebController::class,'viewBlog']);
+Route::get('/home/shop',[\App\Http\Controllers\web\WebController::class,'viewShop']);
+Route::get('/home/about-blog',[\App\Http\Controllers\web\WebController::class,'viewAboutBlog']);
+

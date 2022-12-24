@@ -319,6 +319,11 @@ return [
             'icon' => 'fas fa-clone text-success',
         ],
         [
+            'text' => 'Quản lý kho',
+            'url'  => 'admin/warehouses',
+            'icon' => 'fas fa-boxes text-alert',
+        ],
+        [
             'text' => 'Quản lý đơn hàng',
             'url'  => 'admin/orders',
             'icon' => 'fas fa-cart-plus text-primary',
