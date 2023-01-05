@@ -1,35 +1,41 @@
 @extends('layouts.base')
 
-@section('title', 'Quản lý kho')
+@section('title', 'Nhập kho chi tiết')
 @section('content')
     <br>
-    <a href="{{url('admin/warehouses/import')}}"> <button type="submit" class="btn btn-success">Quản lý nhập kho</button></a>
+    <a href="{{url('admin/warehouses/create')}}"> <button type="submit" class="btn btn-success">Thêm nhập kho chi tiết</button></a>
+    <br>    <br>
     <br>
-    <br>
-    <br>
-    <table id ="tableWarehouses" class="table table-light table-hover table-bordered table-responsive-md">
+    <table id = "tableDetail" class="table table-light table-hover table-bordered table-responsive-md">
         <thead>
         <tr class ="table-primary text-center">
-            <th class = "col-1">Mã kho</th>
-            <th class = "col-5">Địa chỉ</th>
-            <th class = "col-2">Mã cửa hàng</th>
+            <th class = "col-1">Mã nhập kho chi tiết</th>
+            <th class = "col-2">Mã nhập kho</th>
+            <th class = "col-1">Số lượng</th>
+            <th class = "col-2">Mã sản phẩm</th>
+            <th class = "col-1">Giá nhập</th>
             <th class = "col-2">Hành động</th>
         </tr>
         </thead>
         <tbody>
-        @forelse($warehouses as $warehouse)
+        @forelse($detail_import_warehouses as $detail_import_warehouse)
             <tr class =" text-center">
-                <td>{{ $warehouse-> id }}</td>
-                <td>{{ $warehouse-> address }}</td>
-                <td>{{ $warehouse-> id_shop }}</td>
+                <td>{{ $detail_import_warehouse-> id }}</td>
+                <td>{{ $detail_import_warehouse-> id_import }}</td>
+                <td>{{ $detail_import_warehouse-> quantity }}</td>
+                <td>{{ $detail_import_warehouse-> id_product }}</td>
+
+                <td>{{number_format($detail_import_warehouse-> import_price, 0, '', ',')}}{{'đ'}}</td>
                 <td>
-                    <form method="PUT" action="{{url('/admin/warehouses/'.$warehouse->id.'/edit')}}">
-                        @csrf
-                        @method('PUT')
-                        <button type="submit" class="btn btn-primary">Sửa</button>
-                    </form>
-                    <br>
-                    <form onsubmit="return confirm('Bạn có muốn xoá?')" method="POST" action="{{url('/admin/warehouses/'.$warehouse->id)}}">
+
+{{--                    <form method="PUT" action="{{url('/admin/warehouses/'.$detail_import_warehouse->id.'/edit')}}">--}}
+{{--                        @csrf--}}
+{{--                        @method('PUT')--}}
+{{--                        <button type="submit" class="btn btn-primary">Sửa</button>--}}
+{{--                    </form>--}}
+{{--                    <br>--}}
+{{--                    <br>--}}
+                    <form onsubmit="return confirm('Bạn có muốn xoá?')" method="POST" action="{{url('/admin/warehouses/'.$detail_import_warehouse->id)}}">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Xoá</button>
@@ -44,9 +50,7 @@
         </tbody>
     </table>
 
-    {{$warehouses->links()}}
 @endsection
-
 @push('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
@@ -64,7 +68,7 @@
 
     <script>
         $(document).ready(function() {
-            $('#tableWarehouses').DataTable( {
+            $('#tableDetail').DataTable( {
                 dom: 'Bfrtip',
                 buttons: [
                     'copy', 'csv', 'excel', 'pdf', 'print'

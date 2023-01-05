@@ -1,5 +1,5 @@
 @extends('layouts.base')
-@section('title','Sửa sản phẩm')
+@section('title','Chi tiết & Sửa sản phẩm')
 
 @section('content_header','Sản phẩm có id = '.$product->id)
 @section('content')

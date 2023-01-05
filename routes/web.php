@@ -69,6 +69,21 @@ Route::get('/admin/warehouses/{id}/edit',[\App\Http\Controllers\admin\WarehouseC
 Route::put('admin/warehouses/{id}/edit',[\App\Http\Controllers\admin\WarehouseController::class,'updateWarehouseById']);
 //Xoa kho
 Route::delete('admin/warehouses/{id}',[\App\Http\Controllers\admin\WarehouseController::class,'deleteWarehouseById']);
+//Nhap kho
+Route::get('/admin/warehouses/import',[\App\Http\Controllers\admin\WarehouseController::class,'viewImportWarehouse']);
+//Them nhap kho mac dinh
+Route::get('/admin/warehouses/import/create',[\App\Http\Controllers\admin\WarehouseController::class,'viewCreateImport']);
+Route::post('admin/warehouses/import/create',[\App\Http\Controllers\admin\WarehouseController::class,'createImport']);
+//Xoa nhap kho
+Route::delete('admin/warehouses/import/{id}',[\App\Http\Controllers\admin\WarehouseController::class,'deleteImportWarehouseById']);
+
+//Nhap kho chi tiet
+Route::get('/admin/warehouses/{id}/detail',[\App\Http\Controllers\admin\WarehouseController::class,'viewDetailImport']);
+//Xoa nhap kho chi tiet
+Route::delete('admin/warehouses/{id}',[\App\Http\Controllers\admin\WarehouseController::class,'deleteDetailImportById']);
+//Them nhap kho chi tiet
+Route::get('/admin/warehouses/create',[\App\Http\Controllers\admin\WarehouseController::class,'viewCreateImportDetail']);
+Route::post('admin/warehouses/create',[\App\Http\Controllers\admin\WarehouseController::class,'createImportDetail']);
 
 
 
