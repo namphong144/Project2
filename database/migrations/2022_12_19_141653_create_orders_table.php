@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bills', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->date('purchase_date');
             $table->string('status');

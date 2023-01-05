@@ -86,6 +86,10 @@ Route::get('/admin/warehouses/create',[\App\Http\Controllers\admin\WarehouseCont
 Route::post('admin/warehouses/create',[\App\Http\Controllers\admin\WarehouseController::class,'createImportDetail']);
 
 
+//Quan ly don hang
+//Xem
+Route::get('/admin/orders',[\App\Http\Controllers\admin\OrderController::class,'viewOrder']);
+
 
 //Giao dien khach hang
 Route::get('/home/contact',[\App\Http\Controllers\web\WebController::class,'viewContact']);

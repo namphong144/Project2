@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('detail_bill', function (Blueprint $table) {
+        Schema::create('detail_orders', function (Blueprint $table) {
             $table->string('id_bill');
             $table->foreign('id_bill')->references('id')->on('bills');
             $table->string('id_product');

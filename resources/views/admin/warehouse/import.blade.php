@@ -14,10 +14,10 @@
         <tr class ="table-primary text-center">
             <th class = "col-1">Mã nhập kho</th>
             <th class = "col-2">Ngày nhập</th>
-            <th class = "col-1">Mã người nhập</th>
-            <th class = "col-2">Mã kho</th>
-            <th class = "col-1">Mã nhà cung cấp</th>
-            <th class = "col-4">Hành động</th>
+            <th class = "col-1">Tên người nhập</th>
+            <th class = "col-1">Mã kho</th>
+            <th class = "col-2">Mã & tên nhà cung cấp</th>
+            <th class = "col-3">Hành động</th>
         </tr>
         </thead>
         <tbody>
@@ -25,9 +25,21 @@
             <tr class =" text-center">
                 <td>{{ $import_warehouse-> id }}</td>
                 <td>{{ $import_warehouse-> import_date }}</td>
-                <td>{{ $import_warehouse-> id_admin }}</td>
-                <td>{{ $import_warehouse-> id_warehouse }}</td>
-                <td>{{ $import_warehouse-> id_vendor }}</td>
+                <td>
+                    @forelse($users as $user)
+                        @if($import_warehouse->id_admin == $user->id) {{$user->name}} @endif
+                    @empty
+                        {{'Không có tên người nhập'}}
+                    @endforelse
+                </td>
+                <td>{{ $import_warehouse-> id_warehouse }} </td>
+                <td>{{ $import_warehouse-> id_vendor }} {{'-'}}
+                    @forelse($vendors as $vendor)
+                        @if($import_warehouse->id_vendor == $vendor->id) {{$vendor->name}} @endif
+                    @empty
+                        {{'Không có tên nhà cung cấp'}}
+                    @endforelse
+                </td>
                 <td>
                     <a href="{{url('/admin/warehouses/'.$import_warehouse->id.'/detail')}}"> <button type="submit" class="btn btn-success">Nhập kho chi tiết</button></a>
 {{--                    <form method="PUT" action="{{url('/admin/warehouses/'.$import_warehouse->id.'/edit')}}">--}}
@@ -52,7 +64,6 @@
         </tbody>
     </table>
 
-    {{$import_warehouses->links()}}
 @endsection
 
 @push('css')

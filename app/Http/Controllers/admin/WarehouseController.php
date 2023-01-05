@@ -54,20 +54,12 @@ class WarehouseController extends Controller
         return redirect()->back();
     }
 
-    function viewImportWarehouse(Request $request)
+    function viewImportWarehouse()
     {
-
-        $kw = $request->get('kw', '');
-        if (empty($kw)) {
-            $import_warehouses = ImportWarehouse::paginate(10);
-        } else {
-            $import_warehouses = ImportWarehouse::where('id', 'LIKE', '%' . $kw . '%')
-                ->orWhere('name', 'LIKE', '%' . $kw . '%')
-                ->paginate(10);
-        }
-        //$product = Product::paginate(10);
-
-        return view('admin/warehouse/import', ['import_warehouses' => $import_warehouses]);
+        $import_warehouses = ImportWarehouse::all();
+        $users = User::all(['id', 'name']);
+        $vendors = Vendor::all(['id', 'name']);
+        return view('admin/warehouse/import', ['import_warehouses' => $import_warehouses, 'users' => $users, 'vendors' => $vendors]);
     }
     function viewCreateImport(){
         $import_warehouses = ImportWarehouse::all();
