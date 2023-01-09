@@ -118,8 +118,10 @@ class WebController extends Controller
     function viewAboutBlog(){
         return view('web.about-blog');
     }
-    function viewDetails(){
-        return view('web.details');
+    function viewDetail($id){
+            $product =  Product::find($id);
+            return view('web.detail',['product' => $product]);
+
     }
     function viewCart(){
         return view('web.cart');

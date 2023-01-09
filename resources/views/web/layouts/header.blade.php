@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col-lg-3 col-md-3">
                 <div class="header__logo">
-                    <a href="resources/views/web/home.blade.php"><img style="height: 170px; width: 170px" src="{{asset('img/NHAY COFFEE.jpg')}}" alt=""></a>
+                    <a href="{{url('/home')}}"><img style="height: 170px; width: 170px" src="{{asset('img/NHAY COFFEE.jpg')}}" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
