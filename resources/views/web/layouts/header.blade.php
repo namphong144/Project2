@@ -44,10 +44,10 @@
                         </li>
                         <li><a href="#">Trang</a>
                             <ul class="dropdown">
-                                <li><a href="{{url('/home/about-blog')}}">About Us</a></li>
+                                <li><a href="{{url('/home/about-blog')}}">Giới Thiệu</a></li>
                                 <li><a href="#">Shop Details</a></li>
-                                <li><a href="#">Shopping Cart</a></li>
-                                <li><a href="#">Check Out</a></li>
+                                <li><a href="{{url('/home/cart')}}">Giỏ Hàng</a></li>
+                                <li><a href="{{url('/home/check-out')}}">Thanh Toán</a></li>
                                 <li><a href="#">Blog Details</a></li>
                             </ul>
                         </li>

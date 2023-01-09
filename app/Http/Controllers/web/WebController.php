@@ -118,4 +118,14 @@ class WebController extends Controller
     function viewAboutBlog(){
         return view('web.about-blog');
     }
+    function viewDetails(){
+        return view('web.details');
+    }
+    function viewCart(){
+        return view('web.cart');
+    }
+    function viewCheckOut(){
+        return view('web.check-out');
+    }
+
 }

@@ -97,4 +97,6 @@ Route::get('/home/contact',[\App\Http\Controllers\web\WebController::class,'view
 Route::get('/home/blog',[\App\Http\Controllers\web\WebController::class,'viewBlog']);
 Route::get('/home/shop',[\App\Http\Controllers\web\WebController::class,'viewShop']);
 Route::get('/home/about-blog',[\App\Http\Controllers\web\WebController::class,'viewAboutBlog']);
-
+Route::get('/home/details',[\App\Http\Controllers\web\WebController::class,'viewDetails']);
+Route::get('/home/cart',[\App\Http\Controllers\web\WebController::class,'viewCart']);
+Route::get('/home/check-out',[\App\Http\Controllers\web\WebController::class,'viewCheckOut']);

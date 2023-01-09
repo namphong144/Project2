@@ -7,10 +7,10 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb__text">
-                    <h4>Shop</h4>
+                    <h4>Sản Phẩm</h4>
                     <div class="breadcrumb__links">
-                        <a href="{{url('/home')}}">Home</a>
-                        <span>Shop</span>
+                        <a href="{{url('/home')}}">Trang Chủ</a>
+                        <span>Sản Phẩm</span>
                     </div>
                 </div>
             </div>
