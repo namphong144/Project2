@@ -7,7 +7,6 @@
 <div class="offcanvas-menu-wrapper">
     <div class="offcanvas__option">
         <div class="offcanvas__links">
-            <a href="{{asset('/login')}}">Đăng nhập/Đăng ký</a>
         </div>
     </div>
     <div class="offcanvas__nav__option">
@@ -34,12 +33,10 @@
                             <h6>NHAY COFFEE</h6>
                             <h2>A CUP OF COFFEE A DAY KEEP YOUR STRESS AWAY</h2>
                             <p>SINCE 2022</p>
-                            <a href="#" class="primary-btn">Shop now <span class="arrow_right"></span></a>
+                            <a href="{{url('/home/shop')}}" class="primary-btn">Mua Ngay<span class="arrow_right"></span></a>
                             <div class="hero__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-pinterest"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="https://www.facebook.com/nhaycoffee/" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/nhaycoffee/" target="_blank"><i class="fa fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
