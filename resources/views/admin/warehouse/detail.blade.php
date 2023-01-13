@@ -12,7 +12,7 @@
             <th class = "col-1">Mã nhập kho chi tiết</th>
             <th class = "col-2">Mã nhập kho</th>
             <th class = "col-1">Số lượng</th>
-            <th class = "col-2">Mã sản phẩm</th>
+            <th class = "col-2">Mã & tên sản phẩm</th>
             <th class = "col-1">Giá nhập</th>
             <th class = "col-2">Hành động</th>
         </tr>
@@ -23,7 +23,14 @@
                 <td>{{ $detail_import_warehouse-> id }}</td>
                 <td>{{ $detail_import_warehouse-> id_import }}</td>
                 <td>{{ $detail_import_warehouse-> quantity }}</td>
-                <td>{{ $detail_import_warehouse-> id_product }}</td>
+                <td>
+                    {{ $detail_import_warehouse-> id_product }} {{'-'}}
+                    @forelse($products as $product)
+                        @if($detail_import_warehouse->id_product == $product->id) {{$product->name}} @endif
+                    @empty
+                        {{'Không có tên và mã sản phẩm'}}
+                    @endforelse
+                </td>
 
                 <td>{{number_format($detail_import_warehouse-> import_price, 0, '', ',')}}{{'đ'}}</td>
                 <td>

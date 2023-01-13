@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\DetailImportWarehouse;
 use App\Models\Type;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -14,18 +15,11 @@ class ProductController extends Controller
     {
         $this->middleware('check.is.admin');
     }
-    function viewAllProducts(Request $request){
-        $kw = $request->get('kw', '');
-        if(empty($kw)){
-            $products = Product::paginate(10);
-        }
-        else{
-            $products = Product::where('id','LIKE','%'.$kw.'%')
-                ->orWhere('name','LIKE','%'.$kw.'%')
-                ->paginate(10);
-        }
-        //$product = Product::paginate(10);
-        return view('admin/product/index',['products'=>$products]);
+    function viewAllProducts(){
+        $products = Product::all();
+        $types = Type::all(['id', 'name']);
+        $detail_import_warehouses = DetailImportWarehouse::all(['id_product','quantity']);
+        return view('admin/product/index',['products'=>$products, 'types' =>$types, 'detail_import_warehouses' =>  $detail_import_warehouses]);
     }
     function viewProductById($id){
         $product = Product::find($id);

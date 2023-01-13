@@ -5,6 +5,7 @@ namespace App\Http\Controllers\web;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\User;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;

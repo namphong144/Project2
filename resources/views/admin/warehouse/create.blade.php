@@ -23,10 +23,10 @@
                     <input name="quantity" class="form-control" type="number" placeholder="Nhập số lượng" required>
                 </div>
                 <div class="col">
-                    <label>Mã sản phẩm</label>
+                    <label>Tên sản phẩm</label>
                     <select name="id_product" class="form-control">
                         @forelse($products as $product)
-                            <option value="{{$product->id}}">{{$product->id}}</option>
+                            <option value="{{$product->id}}">{{$product->id}}{{' - '}}{{$product->name}}</option>
                         @empty
                             <option>Không có id</option>
                         @endforelse

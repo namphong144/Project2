@@ -1,6 +1,9 @@
 @include('web/layouts/head')
 @include('web/layouts/header')
 <body>
+@if(session('message'))
+    <div>{{ session('message') }}</div>
+@endif
 <!-- Shop Details Section Begin -->
 <section class="shop-details">
     <div class="product__details__pic">
@@ -29,12 +32,16 @@
                         <h3>{{number_format($product->price, 0, '', ',')}}{{'đ'}}</h3>
                         <p>{{$product->description}}</p>
                         <div class="product__details__cart__option">
+                            <form action="{{ route('cart.store') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="id_product" value="{{$product->id}}">
                             <div class="quantity">
                                 <div class="pro-qty">
-                                    <input type="text" value="1">
+                                    <input type="number" value="1" name="quantity">
                                 </div>
                             </div>
-                            <a href="#" class="primary-btn">add to cart</a>
+                            <button type="submit" class="primary-btn">add to cart</button>
+                            </form>
                         </div>
                     </div>
                 </div>

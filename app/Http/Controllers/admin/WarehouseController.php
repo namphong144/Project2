@@ -63,7 +63,7 @@ class WarehouseController extends Controller
     }
     function viewCreateImport(){
         $import_warehouses = ImportWarehouse::all();
-        $users = User::all(['id']);
+        $users = User::all(['id', 'name']);
         $products = Product::all(['id']);
         $warehouses = Warehouse::all(['id']);
         $vendors = Vendor::all(['id']);
@@ -71,6 +71,7 @@ class WarehouseController extends Controller
     }
     function createImport(Request $request){
         $import_warehouse = new ImportWarehouse();
+
         $import_warehouse->id = $request->get('id');
         $import_warehouse->import_date = $request->get('import_date');
         $import_warehouse->id_admin = $request->id_admin;
@@ -86,6 +87,7 @@ class WarehouseController extends Controller
     function viewDetailImport($id)
     {
         $detail_import_warehouses = DetailImportWarehouse::where("id_import","=",$id)->get();
+        $products = Product::all(['id','name']);
 //        dd($detail_import_warehouses);
 //        $import_warehouse = ImportWarehouse::all(['id']);
 
@@ -97,7 +99,7 @@ class WarehouseController extends Controller
 //                ->orWhere('name', 'LIKE', '%' . $kw . '%')
 //                ->paginate(10);
 //        }
-        return view('admin/warehouse/detail', ['detail_import_warehouses' => $detail_import_warehouses]);
+        return view('admin/warehouse/detail', ['detail_import_warehouses' => $detail_import_warehouses, 'products'=>$products]);
     }
     function deleteDetailImportById($id){
         DetailImportWarehouse::destroy($id);
@@ -111,7 +113,7 @@ class WarehouseController extends Controller
         $import_warehouses = ImportWarehouse::all();
         $detail_import_warehouses = DetailImportWarehouse::all(['quantity','import_price','id_import']);
         $users = User::all(['id']);
-        $products = Product::all(['id']);
+        $products = Product::all(['id','name']);
         $warehouses = Warehouse::all(['id']);
         $vendors = Vendor::all(['id']);
 //        dd($products);

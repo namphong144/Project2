@@ -60,8 +60,8 @@
                 <div class="header__nav__option">
                     <a href="#" class="search-switch"><img src="{{asset('img/icon/search.png')}}" alt=""></a>
                     <a href="#"><img src="{{asset('img/icon/heart.png')}}" alt=""></a>
-                    <a href="#"><img src="{{asset('img/icon/cart.png')}}" alt=""> <span>0</span></a>
-                    <div class="price">0 VNĐ</div>
+                    <a href="#"><img src="{{asset('img/icon/cart.png')}}" alt=""> <span>{{\Gloudemans\Shoppingcart\Facades\Cart::content()->count()}}</span></a>
+                    <div class="price">{{\Gloudemans\Shoppingcart\Facades\Cart::total()}} VNĐ</div>
                 </div>
             </div>
         </div>

@@ -133,9 +133,20 @@
                             <a href="detail/{{$product->id}}">
                             <div class="product__item__pic set-bg" data-setbg = '{{asset($product->image)}}'>
                                 <span class="label">New</span>
+{{--                                <ul class="product__hover">--}}
+{{--                                    <li><a href="#"><img src="{{asset('img/icon/heart.png')}}" alt=""></a></li>--}}
+{{--                                    <li><a href="#"><img src="{{asset('img/icon/compare.png')}}" alt=""> <span>Compare</span></a>--}}
+{{--                                    </li>--}}
+{{--                                    <li><a href="#"><img src="{{asset('img/icon/search.png')}}" alt=""></a></li>--}}
+{{--                                </ul>--}}
                             </div>
                             <div class="product__item__text">
                                 <h6>{{ $product->name }}</h6>
+{{--                                <form action="{{url('addcart', $product->id)}}" method="POST">--}}
+{{--                                    @csrf--}}
+{{--                                    <input type="hidden" value="1" min="1" name="quantity">--}}
+{{--                                <a href="#" class="add-cart">+ Add To Cart</a>--}}
+{{--                                </form>--}}
                                 <h5>{{number_format($product->price, 0, '', ',')}}{{'đ'}}</h5>
                             </div>
                             </a>

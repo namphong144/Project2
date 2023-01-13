@@ -77,9 +77,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <ul class="filter__controls">
-                    <li class="active" data-filter=".cf-bottle">Cà phê đóng chai</li>
-                    <li data-filter=".cf-powder">Cà phê bột</li>
-                    <li data-filter=".hot-sales">Bán chạy</li>
+                    <li class="active" data-filter=".cf-bottle">Cà phê mới</li>
+{{--                    <li data-filter=".cf-powder">Cà phê bột</li>--}}
+{{--                    <li data-filter=".hot-sales">Bán chạy</li>--}}
                 </ul>
             </div>
         </div>

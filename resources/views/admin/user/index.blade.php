@@ -38,11 +38,11 @@
                 <td>{{$user->email}}</td>
                 <td>{{$user->number}}</td>
                 <td>
-                    <form method="PUT" action="{{url('/admin/users/'.$user->id.'/edit')}}">
-                        @csrf
-                        @method('PUT')
-                        <button type="submit" class="btn btn-primary">Sửa</button>
-                    </form>
+{{--                    <form method="PUT" action="{{url('/admin/users/'.$user->id.'/edit')}}">--}}
+{{--                        @csrf--}}
+{{--                        @method('PUT')--}}
+{{--                        <button type="submit" class="btn btn-primary">Sửa</button>--}}
+{{--                    </form>--}}
                     <br>
                     <form onsubmit="return confirm('Bạn có muốn xoá?')" method="POST" action="{{url('/admin/users/'.$user->id)}}">
                         @csrf
