@@ -11,7 +11,6 @@
                     <div class="header__top__right">
                         <div class="header__top__links">
                             <a href="{{asset('/login')}}">Đăng nhập/Đăng ký</a>
-
                         </div>
                     </div>
                 </div>
@@ -61,7 +60,7 @@
                     <a href="#" class="search-switch"><img src="{{asset('img/icon/search.png')}}" alt=""></a>
                     <a href="#"><img src="{{asset('img/icon/heart.png')}}" alt=""></a>
                     <a href="#"><img src="{{asset('img/icon/cart.png')}}" alt=""> <span>{{\Gloudemans\Shoppingcart\Facades\Cart::content()->count()}}</span></a>
-                    <div class="price">{{\Gloudemans\Shoppingcart\Facades\Cart::total()}} VNĐ</div>
+                    <div class="price">{{number_format(\Gloudemans\Shoppingcart\Facades\Cart::total(), 0, '', ',')}} VNĐ</div>
                 </div>
             </div>
         </div>

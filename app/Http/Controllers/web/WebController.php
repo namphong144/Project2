@@ -31,6 +31,7 @@ class WebController extends Controller
         //$product = Product::paginate(10);
         return view('web.home',['products'=>$products]);
     }
+
     function viewHomeProduct($id){
         $product = Product::find($id);
         //$product = Product::paginate(10);
@@ -63,6 +64,11 @@ class WebController extends Controller
                 return redirect('/home');
             }
         }
+    }
+    function viewUserHome(){
+        $products = Product::all();
+        $users = User::all(['name','isAdmin']);
+        return view('web.user_home',['products'=>$products, 'users'=> $users]);
     }
 
     // POST: localhost/logout

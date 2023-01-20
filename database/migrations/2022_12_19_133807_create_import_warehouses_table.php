@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('import_warehouse', function (Blueprint $table) {
+        Schema::create('import_warehouses', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->date('import_date');
 

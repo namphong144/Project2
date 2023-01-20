@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\web\WebController::class,'viewHome']);
 
-Route::get('/home',[\App\Http\Controllers\web\WebController::class,'viewHome']);
+Route::get('/home',[\App\Http\Controllers\web\WebController::class,'viewUserHome']);
 Route::post('/home',[\App\Http\Controllers\web\WebController::class,'viewHomeProduct']);
 
 Route::get('/login',[\App\Http\Controllers\web\WebController::class,'viewLogin']);
@@ -88,7 +88,10 @@ Route::post('admin/warehouses/create',[\App\Http\Controllers\admin\WarehouseCont
 
 //Quan ly don hang
 //Xem
-Route::get('/admin/orders',[\App\Http\Controllers\admin\OrderController::class,'viewOrder']);
+Route::get('/admin/orders',[\App\Http\Controllers\admin\OrderController::class,'index']);
+//Xem chi tiet
+Route::get('/admin/orders/detail/{id}/edit',[\App\Http\Controllers\admin\OrderController::class,'edit']);
+Route::put('/admin/orders/detail/{id}/edit',[\App\Http\Controllers\admin\OrderController::class,'edit']);
 
 
 //Giao dien khach hang

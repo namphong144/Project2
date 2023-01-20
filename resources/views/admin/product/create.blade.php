@@ -35,6 +35,7 @@
             </div>
             <br>
             <div class="row">
+
                 <div class="col">
                     <input name="image" type="file" class="form-control-file">
                 </div>
