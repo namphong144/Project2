@@ -20,5 +20,4 @@ class CartController extends Controller
             $product->price);
         return redirect()->route('cart.index')->with('message', 'Successfully added');
     }
-
 }

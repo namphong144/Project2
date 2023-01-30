@@ -36,15 +36,15 @@
                         </tr>
                         </thead>
                         <tbody>
+                            @if(Cart::count() >0)
+                            @foreach(\Gloudemans\Shoppingcart\Facades\Cart::content() as $product)
                         <tr>
-                            @foreach(\Gloudemans\Shoppingcart\Facades\Cart::content() as $row)
                             <td class="product__cart__item">
                                 <div class="product__cart__item__pic">
-                                    <img src="{{asset('img/shopping-cart/cart-1.jpg')}}" alt="">
+                                    <img src="{{asset($product->image)}}{{$product->id}}" alt="">
                                 </div>
                                 <div class="product__cart__item__text">
-                                    <h6>T-shirt Contrast Pocket</h6>
-                                    <h5>123</h5>
+                                    <h6>{{$product->name}}</h6>
                                 </div>
                             </td>
                             <td class="quantity__item">
@@ -54,10 +54,14 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="cart__price">$ 30.00</td>
+                            <td class="cart__price">{{number_format($product->price, 0, '', ',')}}{{'đ'}}</td>
                             <td class="cart__close"><i class="fa fa-close"></i></td>
                         </tr>
-                        @endforeach
+                            @endforeach
+                            @else
+                                <p>Bạn chưa có sản phẩm nào trong giỏ hàng</p>
+                            @endif
+
                         </tbody>
                     </table>
                 </div>
@@ -75,18 +79,19 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="cart__discount">
-                    <h6>Mã Giảm Giá</h6>
-                    <form action="#">
-                        <input type="text" placeholder="Mã giảm giá">
-                        <button type="submit">Áp Dụng</button>
-                    </form>
-                </div>
+{{--                <div class="cart__discount">--}}
+{{--                    <h6>Mã Giảm Giá</h6>--}}
+{{--                    <form action="#">--}}
+{{--                        <input type="text" placeholder="Mã giảm giá">--}}
+{{--                        <button type="submit">Áp Dụng</button>--}}
+{{--                    </form>--}}
+{{--                </div>--}}
                 <div class="cart__total">
                     <h6>Hóa Đơn</h6>
                     <ul>
-                        <li>Tổng Giá Trị Hóa Đơn<span>$ 169.50</span></li>
-                        <li>Tổng Tiền Thanh Toán<span>$ 169.50</span></li>
+                        <li>Tổng Giá Trị Hóa Đơn<span>${{Cart::subtotal()}}</span></li>
+                        <li>Thuế<span>${{Cart::tax()}}</span></li>
+                        <li>Tổng Tiền Thanh Toán<span>${{Cart::total()}}</span></li>
                     </ul>
                     <a href="#" class="primary-btn">Thanh Toán</a>
                 </div>
