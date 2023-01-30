@@ -10,7 +10,34 @@
                 <div class="col-lg-6 col-md-5">
                     <div class="header__top__right">
                         <div class="header__top__links">
-                            <a href="{{asset('/login')}}">Đăng nhập/Đăng ký</a>
+{{--                            <a href="{{asset('/login')}}">Đăng nhập/Đăng ký</a>--}}
+                            @if(Auth::id()==0)
+                                <button class="fa fa-user" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    User
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <form action="{{url('login')}}" method="POST">
+                                        @csrf
+                                        &nbsp;&nbsp;<button class="fa fa-sign-in"> Login</button>
+                                    </form>
+                                </div>
+                            @else
+                                <button class="fa fa-user btn btn-outline-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{Auth::user()->name}}
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <form action="{{url('client/info')}}" method="get">
+                                        @csrf
+                                        &nbsp;&nbsp;<button class="fa fa-info-circle"> Info</button>
+                                    </form>
+                                    <form action="{{url('logout')}}" method="POST">
+                                        @csrf
+                                        &nbsp;&nbsp;<button class="fa fa-sign-out"> Logout</button>
+                                    </form>
+                                </div>
+                            @endif
+                            <button type="button" class="btn btn-outline-light btn-sm" onclick="myFunction()">Đăng xuất</button>
+
                         </div>
                     </div>
                 </div>
@@ -66,5 +93,13 @@
         </div>
         <div class="canvas__open"><i class="fa fa-bars"></i></div>
     </div>
+    <script>
+
+        function myFunction() {
+            if (confirm("Bạn có muốn đăng xuất?")) {
+                location.href = '{{'/login'}}';
+            }
+        }
+    </script>
 </header>
 <!-- Header Section End -->
