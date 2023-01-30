@@ -4,11 +4,6 @@
         <h1>
             Danh sách đơn hàng
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Bill</a></li>
-            <li class="active">List</li>
-        </ol>
     </section>
     <!-- Main content -->
     <section class="content">

@@ -65,11 +65,6 @@ class WebController extends Controller
             }
         }
     }
-    function viewUserHome(){
-        $products = Product::all();
-        $users = User::all(['name','isAdmin']);
-        return view('web.user_home',['products'=>$products, 'users'=> $users]);
-    }
 
     // POST: localhost/logout
     function logout()

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\web\WebController::class,'viewHome']);
 
-Route::get('/home',[\App\Http\Controllers\web\WebController::class,'viewUserHome']);
+Route::get('/home',[\App\Http\Controllers\web\WebController::class,'viewHome']);
 Route::post('/home',[\App\Http\Controllers\web\WebController::class,'viewHomeProduct']);
 
 Route::get('/login',[\App\Http\Controllers\web\WebController::class,'viewLogin']);

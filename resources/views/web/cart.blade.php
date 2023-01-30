@@ -26,6 +26,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="shopping__cart__table">
+                    @if (count(\Gloudemans\Shoppingcart\Facades\Cart::content()))
                     <table>
                         <thead>
                         <tr>
@@ -36,12 +37,10 @@
                         </tr>
                         </thead>
                         <tbody>
-                            @if(Cart::count() >0)
                             @foreach(\Gloudemans\Shoppingcart\Facades\Cart::content() as $product)
                         <tr>
                             <td class="product__cart__item">
-                                <div class="product__cart__item__pic">
-                                    <img src="{{asset($product->image)}}{{$product->id}}" alt="">
+                                <div class="product__cart__item__pic"  data-setbg ='{{asset($product->image)}}'>
                                 </div>
                                 <div class="product__cart__item__text">
                                     <h6>{{$product->name}}</h6>
@@ -58,12 +57,12 @@
                             <td class="cart__close"><i class="fa fa-close"></i></td>
                         </tr>
                             @endforeach
-                            @else
-                                <p>Bạn chưa có sản phẩm nào trong giỏ hàng</p>
-                            @endif
 
                         </tbody>
                     </table>
+                    @else
+                        <p>Bạn chưa có sản phẩm nào trong giỏ hàng</p>
+                    @endif
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
@@ -89,9 +88,9 @@
                 <div class="cart__total">
                     <h6>Hóa Đơn</h6>
                     <ul>
-                        <li>Tổng Giá Trị Hóa Đơn<span>${{Cart::subtotal()}}</span></li>
-                        <li>Thuế<span>${{Cart::tax()}}</span></li>
-                        <li>Tổng Tiền Thanh Toán<span>${{Cart::total()}}</span></li>
+                        <li>Tổng Giá Trị Hóa Đơn<span>{{Cart::subtotal()}}đ</span></li>
+                        <li>Thuế<span>{{Cart::tax()}}đ</span></li>
+                        <li>Tổng Tiền Thanh Toán<span>{{Cart::total()}}đ</span></li>
                     </ul>
                     <a href="#" class="primary-btn">Thanh Toán</a>
                 </div>

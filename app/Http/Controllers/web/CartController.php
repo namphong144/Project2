@@ -18,6 +18,6 @@ class CartController extends Controller
             $product->name,
             $request->input('quantity'),
             $product->price);
-        return redirect()->route('cart.index')->with('message', 'Successfully added');
+        return redirect()->route('cart.index')->withSuccess('Product has been successfully added to the Cart.');
     }
 }
