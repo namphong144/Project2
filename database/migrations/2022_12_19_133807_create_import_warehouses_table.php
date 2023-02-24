@@ -17,11 +17,11 @@ return new class extends Migration
             $table->string('id')->primary();
             $table->date('import_date');
 
-            $table->bigInteger('id_admin');
+            $table->bigInteger('id_admin')->unsigned();
             $table->foreign('id_admin')->references('id')->on('users');
 
             $table->string('id_warehouse');
-            $table->foreign('id_warehouse')->references('id')->on('warehouse');
+            $table->foreign('id_warehouse')->references('id')->on('warehouses');
 
             $table->string('id_vendor');
             $table->foreign('id_vendor')->references('id')->on('vendors');

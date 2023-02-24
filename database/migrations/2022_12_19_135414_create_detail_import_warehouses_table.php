@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('id_import');
-            $table->foreign('id_import')->references('id')->on('import_warehouse');
+            $table->foreign('id_import')->references('id')->on('import_warehouses');
 
             $table->string('id_product');
             $table->foreign('id_product')->references('id')->on('products');
