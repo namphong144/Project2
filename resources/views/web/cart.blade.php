@@ -26,43 +26,49 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="shopping__cart__table">
-                    @if (count(\Gloudemans\Shoppingcart\Facades\Cart::content()))
+                    <?php
+                        $content = \Gloudemans\Shoppingcart\Facades\Cart::content();
+                    ?>
                     <table>
                         <thead>
                         <tr>
                             <th>Sản Phẩm</th>
-                            <th>Số Lượng</th>
                             <th>Đơn Giá</th>
+                            <th>Số Lượng</th>
                             <th></th>
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach(\Gloudemans\Shoppingcart\Facades\Cart::content() as $product)
+                            @foreach($content as $product)
                         <tr>
                             <td class="product__cart__item">
-                                <div class="product__cart__item__pic"  data-setbg ='{{asset($product->image)}}'>
+                                <div class="product__cart__item__pic" >
+                                    <img src='{{asset($product->options->image)}}' width="50px">
                                 </div>
                                 <div class="product__cart__item__text">
                                     <h6>{{$product->name}}</h6>
                                 </div>
                             </td>
+                            <td class="cart__price">{{number_format($product->price, 0, '', '.')}}{{'đ'}}</td>
                             <td class="quantity__item">
                                 <div class="quantity">
-                                    <div class="pro-qty-2">
-                                        <input type="text" value="{{Cart::content()->count()}}">
-                                    </div>
+                                    <form style="text-align: center;" action="{{url('/update-cart-quantity')}}" method="POST" >
+                                            @csrf
+                                            <input class="d-inline form-control w-25" type="text" name="quantity" value="{{$product->qty}}">
+                                            <input type="hidden" value="{{$product->rowId}}" name="rowId_cart" class="form-control">
+                                            <input type="submit" value="Cập nhật" name="update_qty" class="d-inline btn btn-dark btn-sm" style="margin-left: 10px">
+                                    </form>
                                 </div>
+
                             </td>
-                            <td class="cart__price">{{number_format($product->price, 0, '', ',')}}{{'đ'}}</td>
-                            <td class="cart__close"><i class="fa fa-close"></i></td>
+
+                            <td class="cart__close"><a href="{{url('/delete-to-cart/'.$product->rowId)}}"><i class="fa fa-close"></i></a></td>
                         </tr>
                             @endforeach
 
                         </tbody>
                     </table>
-                    @else
-                        <p>Bạn chưa có sản phẩm nào trong giỏ hàng</p>
-                    @endif
+
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
@@ -70,11 +76,11 @@
                             <a href="{{url('/home/shop')}}">Tiếp Tục Mua Hàng</a>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="continue__btn update__btn">
-                            <a href="#"><i class="fa fa-spinner"></i>Cập Nhật Giỏ Hàng</a>
-                        </div>
-                    </div>
+{{--                    <div class="col-lg-6 col-md-6 col-sm-6">--}}
+{{--                        <div class="continue__btn update__btn">--}}
+{{--                            <a href="#"><i class="fa fa-spinner"></i> Cập Nhật Giỏ Hàng</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div>
             </div>
             <div class="col-lg-4">
@@ -88,11 +94,23 @@
                 <div class="cart__total">
                     <h6>Hóa Đơn</h6>
                     <ul>
-                        <li>Tổng Giá Trị Hóa Đơn<span>{{Cart::subtotal()}}đ</span></li>
-                        <li>Thuế<span>{{Cart::tax()}}đ</span></li>
-                        <li>Tổng Tiền Thanh Toán<span>{{Cart::total()}}đ</span></li>
+                        <li>Tổng Giá Trị Hóa Đơn<span>{{\Gloudemans\Shoppingcart\Facades\Cart::subtotal(0, ',', '.').' '.'đ'}}</span></li>
+                        <li>Thuế<span>{{\Gloudemans\Shoppingcart\Facades\Cart::tax(0, ',', '.').' '.'đ'}}</span></li>
+                        <li>Tổng Tiền Thanh Toán<span>{{\Gloudemans\Shoppingcart\Facades\Cart::total(0, ',', '.').' '.'đ'}}</span></li>
                     </ul>
-                    <a href="#" class="primary-btn">Thanh Toán</a>
+                    @if (Auth::check())
+                        @auth
+                            <div>
+                                <a href="{{url('/check-out')}}" class="primary-btn">Thanh Toán</a>
+                            </div>
+                        @else
+                        @endauth
+                    @else
+                        <div>
+                            <a href="{{url('/login')}}" class="primary-btn">Thanh Toán</a>
+                        </div>
+                    @endif
+
                 </div>
             </div>
         </div>

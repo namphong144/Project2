@@ -1,103 +1,106 @@
 @extends('layouts.base')
+@section('title', 'Chi tiết đơn hàng')
 @section('content')
     <section class="content-header">
         <h1>
-            Chi tiết đơn hàng
+            Thông tin khách hàng
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Bill</a></li>
-            <li class="active">List</li>
-        </ol>
     </section>
-    <!-- Main content -->
-    <section class="content">
-        <!-- Default box -->
-        <div class="box">
-            <div class="box-header with-border">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="container123  col-md-6"   style="">
-                            <h4></h4>
-                            <table class="table table-bordered">
-                                <thead>
-                                <tr>
-                                    <th class="col-md-4">Thông tin khách hàng</th>
-                                    <th class="col-md-6"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($customers as $customer)
-                                <tr>
-                                    <td>Thông tin người đặt hàng</td>
-                                    <td>{{ $customer->name }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Ngày đặt hàng</td>
-                                    <td>{{ $customer->created_at }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Số điện thoại</td>
-                                    <td>{{ $customer->number }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Địa chỉ</td>
-                                    <td>{{ $customer->address }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td>{{ $customer->email }}</td>
-                                </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                        <table id="myTable" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
-                            <thead>
-                            <tr role="row">
-                                <th class="sorting col-md-1" >STT</th>
-                                <th class="sorting_asc col-md-4">Tên sản phẩm</th>
-                                <th class="sorting col-md-2">Số lượng</th>
-                                <th class="sorting col-md-2">Giá tiền</th>
-                            </thead>
-                            <tbody>
-                            @foreach($detail_orders as $key => $bill)
-                                <tr>
-                                    <td>{{ $key+1 }}</td>
-                                    <td>{{ $bill->id_product }}</td>
-                                    <td>{{ $bill->quantity }}</td>
-                                    <td>{{ number_format($bill->unit_price) }} VNĐ</td>
-                                </tr>
+    <table id ="tableOrders" class="table table-light table-hover table-bordered table-responsive-md text-center">
+        <thead>
+        <tr class ="table-primary text-center">
+            <th class = "col-2">Tên khách hàng</th>
+            <th class = "col-2">Số điện thoại</th>
+            <th class = "col-2">Email</th>
+        </tr>
+        </thead>
+        <tbody>
 
-                            <tr>
-                                <td colspan="3"><b>Tổng tiền</b></td>
-                                <td colspan="1"><b class="text-red">{{ number_format($bill->total_price) }} VNĐ</b></td>
-                            </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="col-md-12">
-{{--                    <form action="{{ url('admin/orders') }}/{{ $detail_order->id_order }}" method="POST">--}}
-{{--                        <input type="hidden" name="_method" value="PUT">--}}
-{{--                        {{ csrf_field() }}--}}
-                        <div class="col-md-8"></div>
-                        <div class="col-md-4">
-                            <div class="form-inline">
-                                <label>Trạng thái giao hàng: </label>
-                                <select name="status" class="form-control input-inline" style="width: 200px">
-                                    <option value="1">Chưa giao</option>
-                                    <option value="2">Đang giao</option>
-                                    <option value="2">Đã giao</option>
-                                </select>
-
-                                <input type="submit" value="Xử lý" class="btn btn-primary">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+            <tr>
+                <td>{{$customer->name}}</td>
+                <td>{{$customer->number}}</td>
+                <td>{{$customer->email}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br>
+    <section class="content-header">
+        <h1>
+            Thông tin vận chuyển
+        </h1>
     </section>
+    <table id ="tableOrders" class="table table-light table-hover table-bordered table-responsive-md text-center">
+        <thead>
+        <tr class ="table-primary text-center">
+            <th class = "col-2">Tên người đặt hàng/nhận hàng</th>
+            <th class = "col-1">Địa chỉ</th>
+            <th class = "col-2">Số điện thoại</th>
+            <th class = "col-2">Hình thức thanh toán</th>
+            <th class = "col-2">Ghi chú</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr>
+            <td>{{$shipping->shipping_name}}</td>
+            <td>{{$shipping->shipping_address}}</td>
+            <td>{{'0'}}{{$shipping->shipping_number}}</td>
+            <td>@if($payment->payment_method == 1)
+                    Chuyển khoản
+                @else
+                    Tiền mặt/COD
+                @endif
+            </td>
+            <td>{{$shipping->notes}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <br><br>
+    <section class="content-header">
+        <h1>
+            Liệt kê
+        </h1>
+    </section>
+    <table id ="tableOrders" class="table table-light table-hover table-bordered table-responsive-md text-center">
+        <thead>
+        <tr class ="table-primary text-center">
+            <th class = "col-1">STT</th>
+            <th class = "col-2">Tên sản phẩm</th>
+            <th class = "col-1">Số lượng</th>
+            <th class = "col-2">Giá</th>
+            <th class = "col-2">Tổng tiền</th>
+        </tr>
+        </thead>
+        <tbody>
+        @php
+        $i=0;
+        $total=0;
+        @endphp
+        @foreach($order_details as $key => $details)
+            @php
+            $i++;
+            $subtotal =$details->product_price*$details->product_sales_quantity;
+            $total += $subtotal;
+            @endphp
+        <tr>
+            <td>{{$i}}</td>
+            <td>{{$details->product_name}}</td>
+            <td>{{$details->product_sales_quantity}}</td>
+            <td>{{number_format($details->product_price, 0, '', '.')}}{{'đ'}}
+
+            </td>
+            <td>{{number_format($details->product_price*$details->product_sales_quantity, 0, '', '.')}}{{'đ'}}</td>
+        </tr>
+        @endforeach
+        <tr>
+            <td>Thanh Toán: {{number_format($total, 0, '', ',')}}{{'đ'}}</td>
+        </tr>
+        </tbody>
+    </table>
 @endsection
+
+
+
+
+
+

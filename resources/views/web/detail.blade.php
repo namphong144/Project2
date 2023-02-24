@@ -37,10 +37,11 @@
                                 <input type="hidden" name="id_product" value="{{$product->id}}">
                             <div class="quantity">
                                 <div class="pro-qty">
-                                    <input type="number" value="1" name="quantity">
+                                    <input type="number" value="1" name="qty" min="1">
                                 </div>
                             </div>
-                            <button type="submit" class="primary-btn">add to cart</button>
+
+                            <button  type="submit" class="primary-btn">add to cart</button>
                             </form>
                         </div>
                     </div>

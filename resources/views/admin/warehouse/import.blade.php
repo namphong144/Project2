@@ -49,7 +49,7 @@
 {{--                    </form>--}}
                     <br>
                     <br>
-                    <form onsubmit="return confirm('Bạn có muốn xoá?')" method="POST" action="{{url('/admin/warehouses/import'.$import_warehouse->id)}}">
+                    <form onsubmit="return confirm('Bạn có muốn xoá?')" method="POST" action="{{url('/admin/warehouses/import/'.$import_warehouse->id)}}">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Xoá</button>

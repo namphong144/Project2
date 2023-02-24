@@ -21,7 +21,13 @@ Route::post('/home',[\App\Http\Controllers\web\WebController::class,'viewHomePro
 Route::get('/login',[\App\Http\Controllers\web\WebController::class,'viewLogin']);
 Route::post('/login',[\App\Http\Controllers\web\WebController::class,'login']);
 
-Route::post('/logout',[\App\Http\Controllers\web\WebController::class,'logout']);
+Route::post('/logout', [\App\Http\Controllers\web\WebController::class, 'logout']);
+
+Route::get('/logout', ['as' => 'admin.logout', 'uses' => 'AdminController@logout']);
+
+Route::get('/logout',[\App\Http\Controllers\web\WebController::class,'logout']);
+
+
 
 
 Route::get('admin/home',[\App\Http\Controllers\admin\AdminController::class,'viewHome']);
@@ -88,20 +94,31 @@ Route::post('admin/warehouses/create',[\App\Http\Controllers\admin\WarehouseCont
 
 //Quan ly don hang
 //Xem
-Route::get('/admin/orders',[\App\Http\Controllers\admin\OrderController::class,'index']);
+Route::get('/admin/orders',[\App\Http\Controllers\admin\OrderController::class,'manage_order']);
 //Xem chi tiet
-Route::get('/admin/orders/detail/{id}/edit',[\App\Http\Controllers\admin\OrderController::class,'edit']);
-Route::put('/admin/orders/detail/{id}/edit',[\App\Http\Controllers\admin\OrderController::class,'edit']);
+Route::get('/admin/view-order/{order_id}',[\App\Http\Controllers\admin\OrderController::class,'view_order']);
+Route::get('/admin/delete-order/{order_id}',[\App\Http\Controllers\admin\OrderController::class,'delete_order']);
+
 
 
 //Giao dien khach hang
 Route::get('/home/contact',[\App\Http\Controllers\web\WebController::class,'viewContact']);
-
+Route::post('/search',[\App\Http\Controllers\web\WebController::class,'searchProduct']);
 Route::get('/home/blog',[\App\Http\Controllers\web\WebController::class,'viewBlog']);
 Route::get('/home/shop',[\App\Http\Controllers\web\WebController::class,'viewShop']);
 Route::get('/home/about-blog',[\App\Http\Controllers\web\WebController::class,'viewAboutBlog']);
 Route::get('/home/detail/{id}',[\App\Http\Controllers\web\WebController::class,'viewDetail']);
 Route::get('/home/cart',[\App\Http\Controllers\web\WebController::class,'viewCart'])->name('cart.index');
 Route::get('/home/check-out',[\App\Http\Controllers\web\WebController::class,'viewCheckOut']);
+Route::post('/update-cart-quantity',[\App\Http\Controllers\web\CartController::class,'update_cart_quantity']);
 Route::post('/',[\App\Http\Controllers\web\CartController::class,'store'])
     ->name('cart.store');
+Route::get('/show-cart',[\App\Http\Controllers\web\CartController::class,'show_cart']);
+Route::get('/delete-to-cart/{rowId}',[\App\Http\Controllers\web\CartController::class,'delete_to_cart']);
+//checkout
+Route::get('/check-out',[\App\Http\Controllers\web\CheckoutController::class,'checkout']);
+Route::post('/save-checkout-customer',[\App\Http\Controllers\web\CheckoutController::class,'save_checkout_customer']);
+Route::get('/payment',[\App\Http\Controllers\web\CheckoutController::class,'payment']);
+Route::post('/order-place',[\App\Http\Controllers\web\CheckoutController::class,'order_place']);
+//
+

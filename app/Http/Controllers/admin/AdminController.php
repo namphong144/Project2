@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use App\Models\Type;
 use App\Models\Product;
 use App\Models\User;
@@ -19,7 +20,11 @@ class AdminController extends Controller
 
     function viewHome()
     {
-        return view('admin.home');
+        $orders = Order::count();
+        $users = User::where('isAdmin','0')->count();
+        $admins = User::where('isAdmin','1')->count();
+        $products = Product::count();
+        return view('admin.home', compact('orders','users','products','admins'));
     }
 
     function viewAllUsers(Request $request)

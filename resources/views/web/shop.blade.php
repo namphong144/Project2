@@ -147,7 +147,7 @@
 {{--                                    <input type="hidden" value="1" min="1" name="quantity">--}}
 {{--                                <a href="#" class="add-cart">+ Add To Cart</a>--}}
 {{--                                </form>--}}
-                                <h5>{{number_format($product->price, 0, '', ',')}}{{'đ'}}</h5>
+                                <h5>{{number_format($product->price, 0, '', '.')}}{{'đ'}}</h5>
                             </div>
                             </a>
                         </div>

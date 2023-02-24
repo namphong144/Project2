@@ -131,5 +131,4 @@ class WebController extends Controller
     function viewCheckOut(){
         return view('web.check-out');
     }
-
 }

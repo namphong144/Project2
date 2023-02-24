@@ -5,7 +5,10 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\OrderDetails;
+use App\Models\Payment;
 use App\Models\PaymentMethod;
+use App\Models\Shipping;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -18,43 +21,38 @@ class OrderController extends Controller
     {
         $this->middleware('check.is.admin');
     }
-    public function index()
-    {
-        $this->data['title'] = 'Quản lý hóa đơn';
-        $users = DB::table('users')
-            ->orderBy('id', 'desc')
-            ->get();
-        $this->data['users'] = $users;
-        return view('admin.order.index', $this->data);
+    public function manage_order(){
+        $all_order = DB::table('order')
+        ->join('users','order.customer_id','=','users.id')
+            ->select('order.*','users.name')
+            ->orderBy('order.id','desc')->get();
+        return view('admin.order.index')->with('all_order',$all_order);
     }
-//    function viewOrder()
-//    {
-//        $orders = Order::all();
-//        $payments = PaymentMethod::all();
-//        $users = User::all(['id', 'name']);
-//        return view('admin/order/index', ['orders' => $orders, 'payments' => $payments, 'users' => $users]);
-//    }
-    public function edit(Request $request, $id)
-    {
-        $detail_orders = OrderDetail::where("id_order","=",$id)->get();
-        $customers = User::all();
-        return view('admin.order.edit',['detail_orders'=> $detail_orders, 'customers'=> $customers]);
+    public function delete_order($order_id){
+        Order::destroy($order_id);
+        return redirect()->back();
     }
-    public function update(Request $request, $id)
-    {
-        $order = Order::find($id);
-        $order->status = $request->input('status');
-        $order->save();
-        Session::flash('message', "Successfully updated");
+    public function view_order($order_id){
+        $order_details = OrderDetails::where('order_id',$order_id)->get();
+        $order = Order::where('id',$order_id)->get();
+        foreach ($order as $key => $ord){
+            $customer_id = $ord->customer_id;
+            $shipping_id = $ord->shipping_id;
+            $payment_id = $ord->payment_id;
+        }
+        $customer = User::where('id',$customer_id)->first();
+        $shipping = Shipping::where('shipping_id',$shipping_id)->first();
+        $payment = Payment::where('id',$payment_id)->first();
 
-        return Redirect::to('admincp/bill');
-    }
-    public function destroy($id)
-    {
-        $order = Order::find($id);
-        $order->delete();
-        Session::flash('message', "Successfully deleted");
+        $order_details = OrderDetails::with('product')->where('order_id',$order_id)->get();
+//        $order_by_id = DB::table('order')
+//            ->join('users','order.customer_id','=','users.id')
+//            ->join('shipping','order.shipping_id','=','shipping.shipping_id')
+//            ->join('order_details','order.id','=','order_details.order_id')
+//
+//            ->select('order.*','users.*','shipping.*','order_details.*')->first();
 
-        return Redirect::to('admincp/bill');
+        return view('admin.order.edit')->with(compact('order_details','customer','shipping','payment'));
+
     }
 }

@@ -80,7 +80,7 @@
                 </ul>
             </div>
         </div>
-        <div class="row product__filter ">
+        <div class="row ">
             @forelse($products as $product)
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix cf-bottle">
                     <div class="product__item">
@@ -90,7 +90,7 @@
                         </div>
                         <div class="product__item__text">
                             <h6>{{ $product->name }}</h6>
-                            <h5>{{number_format($product->price, 0, '', ',')}}{{'đ'}}</h5>
+                            <h5>{{number_format($product->price, 0, '', '.')}}{{'đ'}}</h5>
                         </div>
                         </a>
                     </div>
@@ -125,39 +125,39 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <span>Latest News</span>
-                    <h2>Fashion New Trends</h2>
+                    <span>Bài Viết Mới</span>
+                    <h2>Đôi Điều Về Nháy</h2>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="blog__item">
-                    <div class="blog__item__pic set-bg" data-setbg="img/blog/blog-1.jpg"></div>
+                    <div class="blog__item__pic set-bg" data-setbg="{{asset('img/baiviet1.jpg')}}"></div>
                     <div class="blog__item__text">
-                        <span><img src="{{asset('img/icon/calendar.png')}}}" alt=""> 16 February 2020</span>
-                        <h5>What Curling Irons Are The Best Ones</h5>
-                        <a href="#">Read More</a>
+                        <span><img src="{{asset('img/icon/calendar.png')}}" alt=""> 16 January 2023</span>
+                        <h5>Sự khác nhau giữa Arabica và Robusta</h5>
+                        <a href="#">Đọc Thêm</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="blog__item">
-                    <div class="blog__item__pic set-bg" data-setbg="img/blog/blog-2.jpg"></div>
+                    <div class="blog__item__pic set-bg" data-setbg="{{asset('img/baiviet2.jpg')}}"></div>
                     <div class="blog__item__text">
-                        <span><img src="{{asset('img/icon/calendar.png')}}" alt=""> 21 February 2020</span>
-                        <h5>Eternity Bands Do Last Forever</h5>
-                        <a href="#">Read More</a>
+                        <span><img src="{{asset('img/icon/calendar.png')}}" alt=""> 21 January 2023</span>
+                        <h5>Cà phê Nháy được làm ra như thế nào?</h5>
+                        <a href="#">Đọc Thêm</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="blog__item">
-                    <div class="blog__item__pic set-bg" data-setbg="img/blog/blog-3.jpg"></div>
+                    <div class="blog__item__pic set-bg" data-setbg="{{asset('img/baiviet3.jpg')}}"></div>
                     <div class="blog__item__text">
-                        <span><img src="{{asset('img/icon/calendar.png')}}" alt=""> 28 February 2020</span>
-                        <h5>The Health Benefits Of Sunglasses</h5>
-                        <a href="#">Read More</a>
+                        <span><img src="{{asset('img/icon/calendar.png')}}" alt=""> 28 January 2023</span>
+                        <h5>Nhâm nhi Hồ Tây cùng Nháy</h5>
+                        <a href="#">Đọc Thêm</a>
                     </div>
                 </div>
             </div>

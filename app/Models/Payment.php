@@ -5,15 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class Payment extends Model
 {
     public $timestamps = false;
     protected $fillable = [
-        'customer_id', 'shipping_id','order_status', 'order_total','created_at'
+        'payment_method','payment_status','created_at'
     ];
     protected $primaryKey = "id";
-    protected $table = 'order';
-
-
+    protected $table = 'payment';
     use HasFactory;
 }
