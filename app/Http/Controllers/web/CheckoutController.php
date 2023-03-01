@@ -49,7 +49,7 @@ class CheckoutController extends Controller
         $order_data['shipping_id'] = Session::get('shipping_id');
         $order_data['payment_id'] = $payment_id;
         $order_data['order_total'] = Cart::total();
-        $order_data['order_status'] = 'Đang chờ xử lý';
+        $order_data['order_status'] = 'Hoàn Thành';
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $order_data['created_at'] = now();
         $order_id = DB::table('order')->insertGetId($order_data);

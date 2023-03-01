@@ -20,11 +20,11 @@
                                 <tr>
                                     <td>{{ $order->name }}</td>
                                     <td>{{number_format((float)$order->order_total, 3, '.', '')}}{{'đ'}}</td>
-                                    <td>{{ $order->order_status }}</td>
+                                    <td>Hoàn Thành</td>
                                     <td>
                                         <a href="{{url('/admin/view-order/'.$order->id)}}"><button type="submit" class="btn btn-success">Xem</button></a>
                                         <br><br>
-                                        <a onclick="return confirm('Bạn có muốn xóa đơn hàng không?')" href="{{url('/admin/delete-order/'.$order->id)}}"><button type="submit" class="btn btn-danger">Xóa</button></a>
+{{--                                        <a onclick="return confirm('Bạn có muốn xóa đơn hàng không?')" href="{{url('/admin/delete-order/'.$order->id)}}"><button type="submit" class="btn btn-danger">Xóa</button></a>--}}
                                     </td>
                                 </tr>
                                 @empty
