@@ -53,11 +53,6 @@
                         <button type="submit" class="btn btn-primary">Sửa</button>
                     </form>
                     <br>
-                    <form onsubmit="return confirm('Bạn có muốn xoá?')" method="POST" action="{{url('/admin/products/'.$product->id)}}">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Xoá</button>
-                    </form>
                 </td>
             </tr>
         @empty

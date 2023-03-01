@@ -44,11 +44,11 @@
 {{--                        <button type="submit" class="btn btn-primary">Sửa</button>--}}
 {{--                    </form>--}}
                     <br>
-                    <form onsubmit="return confirm('Bạn có muốn xoá?')" method="POST" action="{{url('/admin/users/'.$user->id)}}">
+                    {{--<form onsubmit="return confirm('Bạn có muốn xoá?')" method="POST" action="{{url('/admin/users/'.$user->id)}}">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Xoá</button>
-                    </form>
+                    </form> --}}
                 </td>
             </tr>
         @empty
